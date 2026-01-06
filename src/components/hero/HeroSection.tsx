@@ -64,14 +64,19 @@ export const HeroSection: React.FC = () => {
                     <div className="pt-4 w-full max-w-sm">
                         <form onSubmit={async (e) => {
                             e.preventDefault();
-                            if (!email) return;
+                            // 1. Validación básica de formato
+                            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                            if (!emailRegex.test(email)) {
+                                setFeedback({ type: 'error', message: 'Por favor ingresa un email válido.' });
+                                return;
+                            }
 
                             setIsLoading(true);
                             setFeedback(null);
 
                             try {
                                 const { error } = await supabase
-                                    .from('waiting_list')
+                                    .from('leads')
                                     .insert([{ email }]);
 
                                 if (error) throw error;
