@@ -6,10 +6,13 @@ import { Badge } from '@/components/ui/Badge';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 import { XeusMockup } from './XeusMockup';
+import { supabase } from '@/lib/supabase';
 import { useCryptoRate } from '@/hooks/useCryptoRate';
 
 export const HeroSection: React.FC = () => {
     const [email, setEmail] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [feedback, setFeedback] = useState<{ type: 'success' | 'error', message: string } | null>(null);
     const usdtRate = useCryptoRate(1500);
 
     return (
@@ -57,11 +60,59 @@ export const HeroSection: React.FC = () => {
                         Unite a la lista de espera hoy y empezá a ser parte de la comunidad que va a transformar los servicios financieros en Argentina.
                     </p>
 
-                    {/* CTA - Botón más prominente */}
-                    <div className="pt-4">
-                        <Button variant="primary" size="lg" className="text-base font-semibold shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-shadow">
-                            Unirse a la lista de espera
-                        </Button>
+                    {/* CTA - Form */}
+                    <div className="pt-4 w-full max-w-sm">
+                        <form onSubmit={async (e) => {
+                            e.preventDefault();
+                            if (!email) return;
+
+                            setIsLoading(true);
+                            setFeedback(null);
+
+                            try {
+                                const { error } = await supabase
+                                    .from('waiting_list')
+                                    .insert([{ email }]);
+
+                                if (error) throw error;
+                                setFeedback({ type: 'success', message: '¡Gracias! Te avisaremos cuando estemos listos.' });
+                                setEmail('');
+                            } catch (err) {
+                                console.error(err);
+                                setFeedback({ type: 'error', message: 'Hubo un error. Por favor intentá de nuevo.' });
+                            } finally {
+                                setIsLoading(false);
+                            }
+                        }} className="space-y-4">
+                            <div className="flex flex-col sm:flex-row gap-3">
+                                <Input
+                                    type="email"
+                                    placeholder="tu@email.com"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-blue-500/50 focus:ring-blue-500/20"
+                                    required
+                                />
+                                <Button
+                                    type="submit"
+                                    variant="primary"
+                                    disabled={isLoading}
+                                    className="whitespace-nowrap shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] transition-shadow"
+                                >
+                                    {isLoading ? 'Uniendo...' : (
+                                        <>
+                                            Unirme <ArrowRight className="w-4 h-4 ml-2" />
+                                        </>
+                                    )}
+                                </Button>
+                            </div>
+
+                            {feedback && (
+                                <p className={`text-sm ${feedback.type === 'success' ? 'text-green-400' : 'text-red-400'}`}>
+                                    {feedback.message}
+                                </p>
+                            )}
+                        </form>
                     </div>
 
                 </div>
