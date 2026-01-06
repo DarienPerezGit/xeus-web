@@ -45,7 +45,7 @@ export const HeroSection: React.FC = () => {
 
                     {/* Headline - Estilo Revolut */}
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-white drop-shadow-2xl">
-                        Jake
+                        Xeus
                     </h1>
 
                     {/* Description - Más grande como Revolut */}
@@ -64,10 +64,6 @@ export const HeroSection: React.FC = () => {
                         </Button>
                     </div>
 
-                    {/* Small print */}
-                    <p className="text-sm text-gray-600">
-                        Acceso anticipado • 100% gratis
-                    </p>
                 </div>
 
                 {/* Visual Demo - Hidden on mobile, visible on lg+ */}
