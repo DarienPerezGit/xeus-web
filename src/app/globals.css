@@ -1,0 +1,218 @@
+@import "tailwindcss";
+
+/* ============================================
+   AEGIS OS - DESIGN SYSTEM
+   Premium Fintech Dark Mode
+   Blue/Gold Palette
+   ============================================ */
+
+:root {
+  /* Base Colors */
+  --background: #000000;
+  --foreground: #ffffff;
+
+  /* Borders - Ultra Subtle */
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-medium: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.15);
+
+  /* Accent Colors - Fintech Blue & Gold */
+  --accent-blue: #0A2540;
+  /* Deep Navy */
+  --accent-blue-light: #1E3A5F;
+  /* Lighter Navy */
+  --accent-blue-glow: rgba(10, 37, 64, 0.3);
+
+  --accent-gold: #D4AF37;
+  /* Subtle Gold */
+  --accent-gold-light: #E5C158;
+  /* Light Gold */
+  --accent-gold-glow: rgba(212, 175, 55, 0.15);
+
+  /* Typography */
+  --font-sans: var(--font-space-grotesk);
+  --font-mono: var(--font-geist-mono);
+
+  /* Spacing */
+  --container-padding: 1.5rem;
+
+  /* Animations */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-glow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: #050505;
+  color: white;
+  font-family: var(--font-sans);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   TYPOGRAPHY UTILITIES
+   ============================================ */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.tracking-tighter {
+  letter-spacing: -0.02em;
+}
+
+/* ============================================
+   CUSTOM ANIMATIONS
+   ============================================ */
+
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes border-glow {
+
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
+  50% {
+    border-color: rgba(10, 37, 64, 0.4);
+  }
+}
+
+@keyframes border-glow-gold {
+
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
+  50% {
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-border-glow {
+  animation: border-glow 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ============================================
+   GLASS MORPHISM UTILITIES
+   ============================================ */
+
+.glass {
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+}
+
+.glass-strong {
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-medium);
+}
+
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+
+.glow-blue {
+  box-shadow: 0 0 40px var(--accent-blue-glow);
+}
+
+.glow-blue-strong {
+  box-shadow: 0 0 60px rgba(10, 37, 64, 0.5);
+}
+
+.glow-gold {
+  box-shadow: 0 0 40px var(--accent-gold-glow);
+}
+
+.glow-gold-strong {
+  box-shadow: 0 0 60px rgba(212, 175, 55, 0.25);
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================
+   SELECTION
+   ============================================ */
+
+::selection {
+  background: rgba(212, 175, 55, 0.25);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: rgba(212, 175, 55, 0.25);
+  color: #ffffff;
+}
