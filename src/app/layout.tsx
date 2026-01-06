@@ -32,6 +32,9 @@ export const metadata: Metadata = {
     title: "Xeus - Sistema Operativo Financiero",
     description: "Unifica tus pesos y crypto. Protege tu poder de compra.",
   },
+  icons: {
+    icon: '/logo.svg',
+  },
 };
 
 export const viewport: Viewport = {

@@ -5,7 +5,7 @@ import { Shield, Zap, Lock, Globe, Smartphone, CreditCard } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/Badge';
 
-export const WhyAegis: React.FC = () => {
+export const WhyXeus: React.FC = () => {
     const innovations = [
         {
             icon: Shield,

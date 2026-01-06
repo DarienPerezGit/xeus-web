@@ -3,7 +3,7 @@ import { Footer } from '@/components/layout/Footer';
 import { HeroSection } from '@/components/hero';
 import { AboutSection } from '@/components/about';
 import { FeaturesGrid } from '@/components/features';
-import { WhyAegis } from '@/components/why';
+import { WhyXeus } from '@/components/why';
 import { PhilosophySection } from '@/components/philosophy';
 
 export default function Home() {
@@ -30,7 +30,7 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <FeaturesGrid />
-        <WhyAegis />
+        <WhyXeus />
         <PhilosophySection />
         <Footer />
       </div>

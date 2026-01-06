@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
                     {/* Brand */}
                     <div className="flex items-center gap-2">
-                        <Shield className="w-5 h-5 text-white" />
+                        <img src="/logo.svg" alt="Xeus Logo" className="w-8 h-8" />
                         <span className="text-lg font-bold text-white">Xeus</span>
                     </div>
 
@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
                         <a href="#philosophy" className="text-gray-500 hover:text-white transition-colors">
                             Filosofía
                         </a>
-                        <a href="mailto:hola@aegis.ar" className="text-gray-500 hover:text-white transition-colors">
+                        <a href="mailto:hola@xeus.ar" className="text-gray-500 hover:text-white transition-colors">
                             Contacto
                         </a>
                     </div>
@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
                     {/* Social Links */}
                     <div className="flex gap-4">
                         <a
-                            href="https://twitter.com/aegisos"
+                            href="https://twitter.com/xeus_os"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-500 hover:text-white hover:border-white/20 transition-all"
@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
                             <Twitter className="w-4 h-4" />
                         </a>
                         <a
-                            href="https://github.com/aegisos"
+                            href="https://github.com/xeus-os"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-500 hover:text-white hover:border-white/20 transition-all"
@@ -45,7 +45,7 @@ export const Footer: React.FC = () => {
                             <Github className="w-4 h-4" />
                         </a>
                         <a
-                            href="mailto:hola@aegis.ar"
+                            href="mailto:hola@xeus.ar"
                             className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-500 hover:text-white hover:border-white/20 transition-all"
                         >
                             <Mail className="w-4 h-4" />
@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
 
                 {/* Bottom Bar */}
                 <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
-                    <p>© 2026 Aegis Financial Systems. Buenos Aires, Argentina.</p>
+                    <p>© 2026 Xeus Financial Systems. Buenos Aires, Argentina.</p>
                     <p className="text-gray-700">
                         Non-custodial · Read-only · Open Source
                     </p>

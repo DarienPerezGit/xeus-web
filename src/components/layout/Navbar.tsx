@@ -18,7 +18,7 @@ export const Navbar: React.FC = () => {
             <div className="container mx-auto px-6 flex justify-between items-center">
                 {/* Logo */}
                 <div className="flex items-center gap-2 group cursor-pointer">
-
+                    <img src="/logo.svg" alt="Xeus Logo" className="w-8 h-8 md:w-9 md:h-9" />
                     <h2 className="text-xl font-bold tracking-tight text-white">Xeus</h2>
                 </div>
 

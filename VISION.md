@@ -1,4 +1,4 @@
-# Aegis OS: The Financial Operating System for Inflationary Economies
+# Xeus OS: The Financial Operating System for Inflationary Economies
 
 ## Vision
 A single, non-custodial operating system that unifies your liquidity (Crypto + Fiat) and actively protects your purchasing power.
@@ -20,7 +20,7 @@ You never know your real net worth.
 Every minute your pesos sit idle, they lose value.  
 Traditional budgeting apps (Expense Trackers) are useless because they look at the past, while inflation kills your future.
 
-**Aegis OS fixes this by combining Capital Flow (Visibility) with Inflation Shield (Action).**
+**Xeus OS fixes this by combining Capital Flow (Visibility) with Inflation Shield (Action).**
 
 ---
 

@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
-import { AegisMockup } from './AegisMockup';
+import { XeusMockup } from './XeusMockup';
 import { useCryptoRate } from '@/hooks/useCryptoRate';
 
 export const HeroSection: React.FC = () => {
@@ -69,7 +69,7 @@ export const HeroSection: React.FC = () => {
                 {/* Visual Demo - Hidden on mobile, visible on lg+ */}
                 <div className="hidden lg:block flex-1 perspective-1000">
                     <div className="transform rotate-y-[-5deg] rotate-x-[5deg] hover:rotate-0 transition-transform duration-700">
-                        <AegisMockup usdtRate={usdtRate} />
+                        <XeusMockup usdtRate={usdtRate} />
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@ export const HeroSection: React.FC = () => {
             {/* Mobile Mockup - Simplified version */}
             <div className="lg:hidden mt-16 flex justify-center">
                 <div className="w-full max-w-sm">
-                    <AegisMockup usdtRate={usdtRate} />
+                    <XeusMockup usdtRate={usdtRate} />
                 </div>
             </div>
         </section>

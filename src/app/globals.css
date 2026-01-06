@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ============================================
-   AEGIS OS - DESIGN SYSTEM
+   XEUS OS - DESIGN SYSTEM
    Premium Fintech Dark Mode
    Blue/Gold Palette
    ============================================ */
@@ -56,6 +56,11 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

@@ -1,1 +1,1 @@
-export { WhyAegis } from './WhyAegis';
+export { WhyXeus } from './WhyXeus';
