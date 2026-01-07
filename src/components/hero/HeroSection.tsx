@@ -76,7 +76,7 @@ export const HeroSection: React.FC = () => {
 
                             try {
                                 const { error } = await supabase
-                                    .from('leads')
+                                    .from('waiting_list')
                                     .insert([{ email }]);
 
                                 if (error) throw error;
