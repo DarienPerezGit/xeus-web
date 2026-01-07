@@ -64,6 +64,16 @@ export const HeroSection: React.FC = () => {
                     <div className="pt-4 w-full max-w-sm">
                         <form onSubmit={async (e) => {
                             e.preventDefault();
+
+                            // 0. Anti-bot (Honeypot check)
+                            // @ts-ignore
+                            const honeypot = e.target.elements.company_hp?.value;
+                            if (honeypot && honeypot.trim() !== '') {
+                                // Silently fail for bots
+                                console.log('Bot detected');
+                                return;
+                            }
+
                             // 1. Validación básica de formato
                             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                             if (!emailRegex.test(email)) {
@@ -79,8 +89,16 @@ export const HeroSection: React.FC = () => {
                                     .from('waiting_list')
                                     .insert([{ email }]);
 
-                                if (error) throw error;
-                                setFeedback({ type: 'success', message: '¡Gracias! Te avisaremos cuando estemos listos.' });
+                                if (error) {
+                                    // Manejo específico de duplicados (Postgres error 23505)
+                                    if (error.code === '23505') {
+                                        setFeedback({ type: 'success', message: 'Este email ya está registrado 😉' });
+                                    } else {
+                                        throw error;
+                                    }
+                                } else {
+                                    setFeedback({ type: 'success', message: '¡Gracias! Te avisaremos cuando estemos listos.' });
+                                }
                                 setEmail('');
                             } catch (err) {
                                 console.error(err);
@@ -89,6 +107,16 @@ export const HeroSection: React.FC = () => {
                                 setIsLoading(false);
                             }
                         }} className="space-y-4">
+                            {/* Honeypot field (invisible to users) */}
+                            <input
+                                type="text"
+                                name="company_hp"
+                                tabIndex={-1}
+                                autoComplete="off"
+                                style={{ display: 'none' }}
+                                aria-hidden="true"
+                            />
+
                             <div className="flex flex-col sm:flex-row gap-3">
                                 <Input
                                     type="email"

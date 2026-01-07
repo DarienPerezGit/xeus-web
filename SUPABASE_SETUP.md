@@ -42,3 +42,15 @@ Puedes encontrar estas claves en: `Project Settings` > `API`.
 
 4. Reiniciar el servidor
 Si tienes el servidor corriendo, reinicialo para que tome las nuevas variables.
+
+## 5. (Opcional pero Recomendado) Seguridad Extra
+Para evitar que se inserten emails inválidos o basura directamente en la base de datos (saltándose el frontend), ejecuta esto en el SQL Editor:
+
+```sql
+-- Validar formato de email en la base de datos
+alter table waiting_list
+add constraint email_format_check
+check (
+  email ~* '^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$'
+);
+```
